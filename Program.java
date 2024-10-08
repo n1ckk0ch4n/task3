@@ -7,22 +7,15 @@ public class Program {
             new HorizontalParabola(-6, 1, -1.41);
     public static SimpleColor getColor(double x, double y) {
 
-        if (R1.isPointInRectangle(x, y)) {
+        if (R1.isPointInRectangle(x, y)|| (!(P2.isPointRightOfParabola(x, y))) ) {
             return SimpleColor.BLUE;
         }
-        if (!(P2.isPointRightOfParabola(x, y))) {
-            return SimpleColor.BLUE;
-        }
-
         if (!(P1.isPointRightOfParabola(x, y))&& L1.isPointAboveLine(x, y)) {
             return SimpleColor.GRAY;
         }
-        if (L1.isPointAboveLine(x, y)) {
-            return SimpleColor.WHITE;
+        if ((P1.isPointRightOfParabola(x, y) && (!L1.isPointAboveLine(x, y)))){
+            return SimpleColor.ORANGE;
         }
-        if (!(P1.isPointRightOfParabola(x, y) && (!L1.isPointAboveLine(x, y)))){
-            return SimpleColor.WHITE;
-        }
-        return SimpleColor.ORANGE;
+        return SimpleColor.WHITE;
     }
 }
