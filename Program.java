@@ -1,4 +1,5 @@
 public class Program {
+
     public static final Line L1 = new Line(5, -4, 5.0 / 2);
     public static final Rectangle R1 = new Rectangle(2, 4, 4, -5);
     public static final HorizontalParabola P1 =
@@ -10,12 +11,11 @@ public class Program {
         if (R1.isPointInRectangle(x, y)|| (!(P2.isPointRightOfParabola(x, y))) ) {
             return SimpleColor.BLUE;
         }
-        if (!(P1.isPointRightOfParabola(x, y))&& L1.isPointAboveLine(x, y)) {
-            return SimpleColor.GRAY;
+        if (P1.isPointRightOfParabola(x, y)){
+            if (L1.isPointAboveLine(x, y)) return SimpleColor.WHITE;
+            else return SimpleColor.ORANGE;
         }
-        if ((P1.isPointRightOfParabola(x, y) && (!L1.isPointAboveLine(x, y)))){
-            return SimpleColor.ORANGE;
-        }
+        else if (L1.isPointAboveLine(x, y)) return SimpleColor.GRAY;
         return SimpleColor.WHITE;
     }
 }
